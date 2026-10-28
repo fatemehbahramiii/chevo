@@ -1352,7 +1352,8 @@
                 </div>
               </div>
 
-              <form action="{% url 'contact:submit' %}" method="post" class="php-email-form">\n                {% csrf_token %}
+              <form action="{% url 'contact:submit' %}" method="post" class="php-email-form">
+                {% csrf_token %}
                 <div class="row g-4">
                   <div class="col-md-6">
                     <div class="input-group-custom">

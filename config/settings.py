@@ -83,3 +83,9 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = os.getenv("SECURE_SSL_REDIRECT", "True").lower() in ("1", "true", "yes")
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+
+# Payment gateway settings (configure only from official merchant documentation).
+BITPAY_API_KEY = os.getenv("BITPAY_API_KEY", "")
+BITPAY_CREATE_PAYMENT_URL = os.getenv("BITPAY_CREATE_PAYMENT_URL", "")
+BITPAY_CALLBACK_URL = os.getenv("BITPAY_CALLBACK_URL", "")
+BITPAY_REDIRECT_BASE_URL = os.getenv("BITPAY_REDIRECT_BASE_URL", "")

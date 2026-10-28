@@ -24,9 +24,8 @@ def contact_submit(request):
         except Exception:
             # The message is safely saved in the database/admin even if email delivery is not configured.
             messages.warning(request, "پیام ثبت شد، اما ارسال ایمیل انجام نشد. لطفاً تنظیمات ایمیل را بررسی کنید.")
-        return redirect(request.META.get("HTTP_REFERER") or "home")
-    messages.error(request, "اطلاعات فرم معتبر نیست؛ لطفاً فیلدها را بررسی کنید.")
-    return redirect(request.META.get("HTTP_REFERER") or "home")
+        return HttpResponse("OK")
+    return HttpResponseBadRequest("Please check the form fields and try again.")
 
 def register(request):
     if request.user.is_authenticated:

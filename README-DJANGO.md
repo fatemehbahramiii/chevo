@@ -1,6 +1,6 @@
 # CHEVO Django backend (initial scaffold)
 
-This backend is added on branch `feature/django-backend`; the existing static HTML website is preserved.
+This backend is added on branch `feature/django-backend`. The existing Persian homepage is copied to `templates/index.html` and served by Django; the original `index.html` remains unchanged.
 
 ## Local setup (Windows)
 1. Install Python 3.11+.
@@ -27,5 +27,5 @@ This backend is added on branch `feature/django-backend`; the existing static HT
 - This is an initial scaffold, not a production-ready payment integration.
 - The exact BitPay API URL, request schema, redirect URL and server-to-server verification depend on the specific Iranian BitPay merchant API documentation. Configure those from the official merchant documentation. A browser callback alone never marks a payment paid.
 - Configure real SMTP settings, a strong DJANGO_SECRET_KEY, production ALLOWED_HOSTS, CSRF_TRUSTED_ORIGINS, HTTPS and a production database.
-- The current `index.html` still submits to the old `forms/contact.php`; to use Django contact handling, update its form action to `/contact/` and keep `method="post"`. Include Django's CSRF token in a Django-rendered template. The existing static HTML is not yet converted into a Django template.
+- The homepage template now posts the contact form to Django and includes a CSRF token. Static assets are referenced through Django's static template tag. Verify the existing JavaScript form validator in the running environment.
 - Run `python manage.py check` and `python manage.py test` before deployment.
